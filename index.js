@@ -1,28 +1,14 @@
 const express = require('express')
 
 const app = express();
+//Recibe nombres por parametros en la url
+app.get('/helo/:username', (req,res)=>{
+    // console.log(req.params.username)
 
-app.get('/',(req, res)=>{
-    res.send("Hola mundo")
+    res.send(`Hello ${req.params.username}`);
 })
 
-app.get('/about',(req, res)=>{
-    res.send("About")
-})
-
-app.get('/us',(req, res)=>{
-    res.send("Us")
-})
-
-app.get('/this',(req, res)=>{
-    res.send("This")
-})
-
-app.use((req,res)=>{
-    res.status(404).send("404: No existe")
-})
-
-app.listen(3000)
-console.log("Server on port 3000")
+app.listen(1234)
+console.log("Server on port 1234")
 
 
