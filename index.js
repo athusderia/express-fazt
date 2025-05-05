@@ -4,25 +4,22 @@ const morgan = require('morgan')
 
 const app = express();
 
+//Usando express router
+const HomeRoutes = require('./routes/home.js')
+const UsersRoutes = require('./routes/users.js')
+
+
+
 //Middleware morgan
 app.use(morgan('dev'))
 //Es un middleware
 app.use(express.json())
-
-app.get('/profile', (req, res)=>{
-    res.send('Profile Page')
-})
-
-app.get('/about', (req, res)=>{
-    res.send('About Page')
-})
-
-app.get('/dashboard',(req,res)=>{
-    res.send('Dashboard page')
-})
+//Usando express router
+app.use(HomeRoutes)
+app.use(UsersRoutes)
 
 
-app.listen(1234)
-console.log("Server on port 1234")
+app.listen(12345)
+console.log("Server on port 12345")
 
 
